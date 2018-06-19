@@ -38,7 +38,7 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title "Projeto de Eletrônica de Potência"
+Title "Conversor Boost - Projeto de Eletrônica de Potência"
 Date "2018-05-30"
 Rev ""
 Comp "Universidade Federal do Ceará"
@@ -206,7 +206,7 @@ L R R1
 U 1 1 5B0DD999
 P 2850 2250
 F 0 "R1" V 2750 2250 50  0000 C CNN
-F 1 "R" V 2850 2250 50  0000 C CNN
+F 1 "10k" V 2850 2250 50  0000 C CNN
 F 2 "Potentiometers:Potentiometer_WirePads" V 2780 2250 50  0001 C CNN
 F 3 "" H 2850 2250 50  0001 C CNN
 	1    2850 2250
@@ -217,7 +217,7 @@ L POT RV1
 U 1 1 5B0DDC6F
 P 2000 3400
 F 0 "RV1" H 1850 3450 50  0000 C CNN
-F 1 "POT" H 1850 3350 50  0000 C CNN
+F 1 "50k" H 1850 3350 50  0000 C CNN
 F 2 "Potentiometers:Potentiometer_Trimmer_ACP_CA6v_Horizontal" H 2000 3400 50  0001 C CNN
 F 3 "" H 2000 3400 50  0001 C CNN
 	1    2000 3400
@@ -228,7 +228,7 @@ L POT RV2
 U 1 1 5B0DDCD7
 P 1250 3500
 F 0 "RV2" V 1075 3500 50  0000 C CNN
-F 1 "POT" V 1150 3500 50  0000 C CNN
+F 1 "50k" V 1150 3500 50  0000 C CNN
 F 2 "Potentiometers:Potentiometer_Trimmer_ACP_CA6v_Horizontal" H 1250 3500 50  0001 C CNN
 F 3 "" H 1250 3500 50  0001 C CNN
 	1    1250 3500
@@ -250,7 +250,7 @@ L C C2
 U 1 1 5B0DDE0C
 P 3600 2500
 F 0 "C2" V 3750 2500 50  0000 L CNN
-F 1 "C" V 3850 2550 50  0000 L CNN
+F 1 "10nF" V 3850 2550 50  0000 L CNN
 F 2 "Capacitors_THT:CP_Radial_D8.0mm_P5.00mm" H 3638 2350 50  0001 C CNN
 F 3 "" H 3600 2500 50  0001 C CNN
 	1    3600 2500
