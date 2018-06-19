@@ -1,16 +1,18 @@
 # CONVERSOR BOOST
 ## UNIVERSIDADE FEDERAL DO CEARÁ
 
-#### CAMPUS SOBRAL
-#### CURSO: ENGENHARIA ELÉTRICA
-#### DISCIPLINA: ELETRÔNICA DE POTÊNCIA
+### CAMPUS SOBRAL
+### CURSO: ENGENHARIA ELÉTRICA
+### DISCIPLINA: ELETRÔNICA DE POTÊNCIA
 
 
+#### Autores
+#### 1. FLÁVIA PEROZA RUIZ
+#### 2. JULIO CESAR FERREIRA LIMA
+#### 3. MATHEUS PIRES DE FARIAS
+#### 4. YARA MACHADO OLIVEIRA
 
-##### FLÁVIA PEROZA RUIZ – 375188
-##### JULIO CESAR FERREIRA LIMA - 393849
-##### MATHEUS PIRES DE FARIAS – 356821
-##### YARA MACHADO OLIVEIRA – 375213
+### OBS:. ISSO É APENAS UM RESUMO, PARA MAIOR RIQUEZA DE DETALHES VER A VERSÃO EM PDF "Relatório de Potência.pdf".
 
 ## 1. INTRODUÇÃO
 
@@ -29,7 +31,7 @@ conceito inicial de tempo de chave aberta e fechada, em um período T e uma raz�
 Figura 1: Chaveamento em uma tensão de entrada Vs.
 
 
-### 1 .1. CONVERSOR BOOST.................................................................................................
+### 1 .1. CONVERSOR BOOST
 
 O conversor boost é um conversor chaveado elevador, ou seja, fornece um ganho
 de tensão na saída. Além disso, também apresenta características de fonte de corrente na
@@ -64,8 +66,6 @@ Fazendo a mesma análise para a variação da corrente feita para a chave fechad
 consideramos o tempo de chave aberto como (1-D)T. A equação 1.4 nos fornece a
 variação da corrente no indutor para o circuito com a chave aberta.
 
-
-
 #### 1.1.3. Ganho
 
 Tomando as equações 1.3 e 1.4 como referência e igualando, obtemos a expressão
@@ -96,11 +96,9 @@ acordo com os parâmetros que serão usados no projeto.
 De acordo com a forma de onda da figura 7 encontramos a carga no capacitor
 apenas calculando a área coberta de ranhuras.
 
-
 Partindo da equação 1.10, observamos que a corrente do capacitor é proporcional
 à derivada da tensão de saída. Considerando que corrente é a derivada da carga em função
 do tempo, obtemos a equação 1.11.
-
 
 Com isso, encontramos a expressão característica da variação da tensão de saída
 de um conversor boost.
@@ -110,7 +108,6 @@ de um conversor boost.
 No conversor boost, o diodo se encontra em série com o indutor quando a chave
 está aberta, a forma de onda será similar à da corrente no indutor quando o a chave estiver
 aberta e zero quando a chave estiver fechada, como mostra a figura 8.
-
 
 ### 1.2. GERADOR DE PWM
 
@@ -210,8 +207,6 @@ Para a implementação do conversor boost foram necessários cálculos para o
 dimensionamento correto dos componentes. Para esses cálculos foram usados os
 parâmetros da tabela 1.
 
-
-
 ### 4.1. CÁLCULOS DO CONVERSOR BOOST
 
 #### 4.1.1. Resistência e tensão de saída
@@ -262,14 +257,12 @@ potência de saída e a tensão de entrada.
 A partir da equação que segue, podemos obter a corrente de entrada, que é igual a
 corrente no indutor.
 
-##### (3.5)
 
 #### 4.1.4.2 Corrente de saída
 
 Utilizando a potência de saída e a tensão de saída, podemos obter a corrente de
 saída a partir da equação abaixo:
 
-##### (3.6)
 
 Com os valore obtidos, finalmente podemos calcular o valor teórico do indutor,
 de acordo com a tensão de saída, ondulação de corrente de entrada, o ciclo de trabalho e
@@ -277,7 +270,6 @@ a frequência a partir da equação que segue, levando em consideração que a o
 corrente deve estar em função da tensão de entrada, do ciclo de trabalho, a indutância e a
 frequência, ∆i:
 
-##### (3.7)
 
 O indutor implementado na prática foi feito de forma manual, obtendo um valor
 de 1,5 mH, garantindo dessa forma a ondulação de corrente no mesmo em um valor de
@@ -492,17 +484,17 @@ elementos reais dissipam calor, perdendo energia, entre outros fatores como a ob
 manual do indutor calculado, que fazem com que a execução do projeto se torne mais
 difícil.
 É relevante citar foi necessário implementar dissipadores, pois componentes como
-o MOSFET dissipam muito calor, dada a potência trabalhada, que é de 70 푊. Além disso,
-para que o conversor funcionasse com um duty cycle maior que 0 , 5 foi preciso utilizar as
+o MOSFET dissipam muito calor, dada a potência trabalhada, que é de 70W. Além disso,
+para que o conversor funcionasse com um duty cycle maior que 0,5 foi preciso utilizar as
 duas saídas do CI SG3525 num pequeno circuito eletrônico que somasse as duas, pois o
-ciclo de trabalho do projeto em questão era de 0 , 58.
+ciclo de trabalho do projeto em questão era de 0,58.
 Pelo fato de não ser controlado, caso este conversor CC-CC do tipo Boost tenha
 alguns de seus parâmetros alterados, os demais não serão ajustados, obtendo valores
 diferentes dos esperados.
 Com isso, na execução do projeto final da disciplina de Eletrônica de Potência,
 observou-se a importância de um bom planejamento e estudo do funcionamento do
 circuito a ser implementado. Em função disso, o conversor teve uma boa resposta e, como
-esperado, elevou a tensão de 15 푉 de entrada para uma tensão de 35 푉 de saída, ambas
+esperado, elevou a tensão de 15V de entrada para uma tensão de 35V de saída, ambas
 contínuas, com a carga estabelecida, obedecendo os parâmetros de projeto, possibilitando
 um maior conhecimento prático desse conteúdo, além das práticas em laboratório.
 
@@ -515,11 +507,3 @@ Rio Grande do Sul, Brasil: AMGH Editora Ltda.
 [2] BARBI, Ivo. (2011). Projetos de fontes chaveadas. Florianópolis: Edição do
 Autor.
 ```
-
-
-
-
-
-
-
-
