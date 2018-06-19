@@ -1,73 +1,16 @@
-##### UNIVERSIDADE FEDERAL DO CEARÁ
+# CONVERSOR BOOST
+## UNIVERSIDADE FEDERAL DO CEARÁ
 
-##### CAMPUS SOBRAL
+#### CAMPUS SOBRAL
+#### CURSO: ENGENHARIA ELÉTRICA
+#### DISCIPLINA: ELETRÔNICA DE POTÊNCIA
 
-##### CURSO: ENGENHARIA ELÉTRICA
 
-##### PROJETO FINAL
-
-##### DISCIPLINA: ELETRÔNICA DE POTÊNCIA
-
-##### CONVERSOR BOOST
 
 ##### FLÁVIA PEROZA RUIZ – 375188
-
 ##### JULIO CESAR FERREIRA LIMA - 393849
-
 ##### MATHEUS PIRES DE FARIAS – 356821
-
 ##### YARA MACHADO OLIVEIRA – 375213
-
-```
-Sobral, 1 6 de junho de 2018
-```
-
-## Sumário
-
-
-- 1. INTRODUÇÃO
-   - 1 .1. CONVERSOR BOOST.................................................................................................
-      - 1.1.1. Chave fechada
-      - 1.1.2. CHAVE ABERTA
-      - 1.1.3. Ganho
-      - 1.1.4. Cálculo da corrente
-      - 1.1.5. Indutância mínima
-      - 1.1.6. Ondulação de tensão na saída
-      - 1.1.7. Corrente no diodo
-   - 1.2. GERADOR DE PWM
-      - 1.2.1. Circuito de chaveamento do mosfet
-   - 1.3. CARGA
-- 2. OBJETIVOS
-- 3. METODOLOGIA
-- 4. PROCEDIMENTO
-   - 4.1. CÁLCULOS DO CONVERSOR BOOST
-      - 4.1.1. Resistência e tensão de saída
-      - 4.1.2. Corrente média no indutor
-      - 4.1.3 Indutância mínima
-      - 4.1.4 Cálculo do indutor
-      - 4.1.4.1 Corrente no indutor
-      - 4.1.4.2 Corrente de saída
-      - 4.1.5 Cálculo do capacitor
-   - 4.2. DIMENSIONAMENTO DO INDUTOR
-      - 4.2.1. Núcleos magnéticos
-      - 4.2.2. Cálculos dos parâmetros.
-      - 4.2.3. Número de espiras
-      - 4.2.4. Entreferro
-      - 4.2.5. Secção dos condutores
-   - 4.3. CIRCUITO SIMULADO
-- 5. EXPERIMENTO
-   - 5.1. CIRCUITO DE CHAVEAMENTO
-   - 5.2. CIRCUITO DE POTÊNCIA
-   - 5.3. CIRCUITO DE CARGA
-- 6. CONCLUSÃO
-- 7. REFERÊNCIAS BIBLIOGRÁFICAS
-- 8. REPOSITÓRIO
-- 9. ANEXOS
-   - 9.1. CIRCUITO DESENVOLVIDO NO KICAD EM 3D (ILUSTRATIVO)
-   - 9.2. ESQUEMÁTICO DESENVOLVIDO NO KICAD
-   - (ILUSTRATIVO) 9.3. PLACA DE CIRCUITO IMPRESSO DESENVOLVIDA NO KICAD
-   - PARA EXECUSSÃO) 9.4. PLACA DE CIRCUITO IMPRESSO DESENVOLVIDA NO KICAD (PRONTA
-
 
 ## 1. INTRODUÇÃO
 
@@ -85,109 +28,64 @@ conceito inicial de tempo de chave aberta e fechada, em um período T e uma raz�
 (duty cycle). O princípio do duty cycle é mostrado na figura 1.
 Figura 1: Chaveamento em uma tensão de entrada Vs.
 
-```
-Fonte: Eletrônica de Potência, Daniel W. Hart.
-```
+
 ### 1 .1. CONVERSOR BOOST.................................................................................................
 
 O conversor boost é um conversor chaveado elevador, ou seja, fornece um ganho
 de tensão na saída. Além disso, também apresenta características de fonte de corrente na
 entrada e fonte de tensão na saída. O circuito do conversor boost é mostrado na figura 2.
 
-```
-Figura 2: Conversor boost
-```
-```
-Fonte: Eletrônica de Potência, Daniel W. Hart.
-```
 
 Analisando esse circuito em seus dois modos de operação referentes ao
 chaveamento, chave aberta e chave fechada, podemos observar duas situações para a
 variação de corrente do indutor.
 Para as análises feitas a seguir, consideraremos as seguintes características do duty
 cycle, como mostrada na figura 3 e a equação 1.1.
-Figura 3: Características do duty cycle
 
-```
-Fonte: Eletrônica de Potência, Daniel W. Hart.
-푉퐿=퐿푑푑푡(퐼푙) (1.1)
-```
+
 #### 1.1.1. Chave fechada
 
 Analisando a figura 4, conversor com a chave fechada, percebemos que a tensão em
 cima do indutor, VL, é a mesma que VS de entrada.
 
-```
-Figura 4: Conversor boost com a chave fechada
-```
-Fonte: Eletrônica de Potência, Daniel W. Hart.
+
 Considerando a taxa de variação da corrente como constante, aumentando
 linearmente enquanto a chave estiver fechada, e que o tempo em que a chave permanece
 fechada é DT,a variação da corrente pode ser calculada por:
 
-```
-∆∆퐼푡퐿=∆퐷푇퐼퐿=푉퐿푆 (1.2)
-```
 
-##### ∆퐼퐿=푉푆^ ×퐿퐷×푇 (1.3)
 
 #### 1.1.2. CHAVE ABERTA
 
 A figura 5 demonstra o funcionamento do circuito com a chave aberta. Analisando
 percebemos que a tensão em cima do indutor se torna (VS - VO).
 
-```
-Figura 5: Análise de chave aberta.
-```
-Fonte: Eletrônica de Potência, Daniel W. Hart.
 Fazendo a mesma análise para a variação da corrente feita para a chave fechada,
 consideramos o tempo de chave aberto como (1-D)T. A equação 1.4 nos fornece a
 variação da corrente no indutor para o circuito com a chave aberta.
 
-∆퐼퐿=(푉푆−푉푂퐿)(^1 −퐷)푇 (1.4)
+
 
 #### 1.1.3. Ganho
 
 Tomando as equações 1.3 e 1.4 como referência e igualando, obtemos a expressão
 de ganho do conversor boost, mostrada na equação 1.5.
 
-```
-푉푉표푆=( 1 −^1 퐷) (1.5)
-```
 #### 1.1.4. Cálculo da corrente
 
 Em conversores ideais podemos considerar a potência de entrada e de saída como
 as mesmas. A partir disso encontramos uma reação para a corrente média do indutor, dada
-pela equação 1.6.
-
-퐼푆=퐼퐿= 푉푂푉×푆퐼푂 (1.6)
-
+pela equação.
 
 Partindo disso são determinados os valores máximos e mínimos da corrente no
 indutor. Observamos através da figura 6 o valor médio e as variações.
 
-```
-Figura 6: Corrente no indutor
-```
-```
-Fonte: Eletrônica de Potência, Daniel W. Hart.
-```
-```
-Ao analisar a figura 6 podem ser extraídas as seguintes equações:
-퐼푚í푛=퐼퐿− ∆퐼퐿 (1.7)
-퐼푚á푥=퐼퐿+ ∆퐼퐿 (1.8)
-```
 #### 1.1.5. Indutância mínima
 
 Para uma condução contínua de corrente no indutor, a corrente deve ser maior que
 zero. Igualamos então a equação 1.7 a zero para obtermos a indutância mínima no modo
 contínuo.
 
-```
-퐿푚í푛=퐷(^1 −퐷)
-```
-(^2) 푅
-2 푓^ (1.9)^
 Vale ressaltar que este valor é o de indutância mínima, não é o mesmo usado no
 projeto. O indutor usado no conversor será calculado através das equações 1.3 e 1.4, de
 acordo com os parâmetros que serão usados no projeto.
@@ -198,28 +96,14 @@ acordo com os parâmetros que serão usados no projeto.
 De acordo com a forma de onda da figura 7 encontramos a carga no capacitor
 apenas calculando a área coberta de ranhuras.
 
-```
-Figura 7: Corrente no capacitor
-```
-```
-Fonte: Eletrônica de Potência, Daniel W. Hart.
-```
+
 Partindo da equação 1.10, observamos que a corrente do capacitor é proporcional
 à derivada da tensão de saída. Considerando que corrente é a derivada da carga em função
 do tempo, obtemos a equação 1.11.
 
-```
-퐼퐶=퐶×푑(푑푡푉표) (1.10)
-```
-```
-∆푄=퐶×∆푉푂 (1.11)
-```
+
 Com isso, encontramos a expressão característica da variação da tensão de saída
 de um conversor boost.
-
-```
-∆푉푉푂푂=푅퐶푓퐷 (1.12)
-```
 
 #### 1.1.7. Corrente no diodo
 
@@ -227,21 +111,14 @@ No conversor boost, o diodo se encontra em série com o indutor quando a chave
 está aberta, a forma de onda será similar à da corrente no indutor quando o a chave estiver
 aberta e zero quando a chave estiver fechada, como mostra a figura 8.
 
-```
-Figura 8: Corrente no diodo
-```
-```
-Fonte: Eletrônica de Potência, Daniel W. Hart.
-```
+
 ### 1.2. GERADOR DE PWM
 
 O CI usado para realizar o chaveamento do projeto é o SG3525, através de um
 PWM (modulação por largura de pulso). O circuito montado é similar ao da figura 9, onde
 em RX é feito o ajuste da razão cíclica e em R 1 a frequência.
 
-```
-Figura 9: Gerador de PWM
-```
+
 Fonte: Práticas de laboratório de Eletrônica de Potência.
 Teoricamente, a saída do SG3525 deveria ser ligada na chave (MOSFET). Porém,
 ao realizar essa ligação direta poderia gerar riscos de queimar os componentes. No
@@ -254,86 +131,7 @@ O circuito de chaveamento do MOSFET foi montado como na figura 10. A análise
 do circuito apresentado na figura 10 é fundamentada em estados bem definidos de corte
 e saturação do MOSFET, cujo sinal é gerado pelo drive de acionamento da figura 9.
 
-```
-Figura 10: Circuito de chaveamento do MOSFET
-```
-```
-Vpuls e
-```
-```
-Q
-```
-```
-Q
-```
-```
-Q
-```
-```
-M
-```
-```
-D
-```
-```
-R
-120
-R
-22
-R
-```
-```
-R
-```
-```
-R6 10kR
-```
-```
-R
-```
-```
-Vcc
-```
-```
-Vcd
-```
-```
-0
-```
-```
-0
-```
-```
-Ic 2
-```
-```
-Ie 3
-```
-```
-Id 1 ID
-```
-```
-680 D
-```
-```
-+
-```
--
 
-```
-+
-VC2 -
-VE
-```
-```
-Vgate
-```
-```
-Vdreno
-```
-```
-Fonte: Roteiro de práticas de Eletrônica de Potência
-```
 Para um sinal de nível alto (5V), gerado por Vpulse, o transistor Q 2 entra em
 saturação, conduzindo uma corrente no coletor de IC2. O divisor de tensão composto por
 R 4 e R 5 garante que o transistor Q 3 entre em saturação e conduza uma corrente IE3, parte
@@ -381,16 +179,6 @@ desbloquear, contudo o fato de obrigatoriamente ter de se clicar em um específi
 já garante um maior nível de confiabilidade nos cálculos. A planilha desenvolvida
 encontra-se no repositório público [3].
 
-```
- Potência: 70W
- ∆is Percentual: 10%
- ∆io Percentual: 10%
-```
-```
- ∆Vo Percentual: 10%
- Frequência: 20000 Hz
- Tensão de entrada: 15V
-```
 No desenvolvimento das placas de circuito impresso, foi utilizado o software
 Kicad, que é Open Source e agrega muito de outros softwares industriais como o Altium.
 Com facilidade é possível gerar um projeto de eletrônica com este, uma vez que ele se
@@ -400,7 +188,6 @@ A maior facilidade que o Kicad oferece, é por conter uma vasta quantidade de
 componentes de comuns no mercado, assim como o encapsulamento destes, muitos em
 3 D. Outra grande vantagem na sua utilização, é na facilidade de se anexar novos
 dispositivos encontrados por meio da Internet, por conta de uma vasta comunidade que
-
 
 se dedica a compartilhar estes, assim como a concepção de novos componentes, inclusive
 em 3D. A possibilidade de visualização em 3D possibilita que problemas de espaço
@@ -423,19 +210,7 @@ Para a implementação do conversor boost foram necessários cálculos para o
 dimensionamento correto dos componentes. Para esses cálculos foram usados os
 parâmetros da tabela 1.
 
-```
-Tabela 1: Parâmetros do projeto
-```
-Tensão de Entrada (푉푆) (^) 15 V
-Tensão de Saída (푉푂) (^) 35 V
-Potência de Saída (P) (^) 70 W
-Frequência (f) (^) 20 kHz
-Ondulação de Tensão na Saída (∆푉푉푂) (^) 10%
-Ondulação de Corrente na Saída (∆푖푖) 10%
-Resistência Equivalente (carga) (푅푒푞) (^) 18,18 Ω
-Fonte: Autoral
-A partir da especificação dos parâmetros do projeto foram realizados os cálculos
-dos componentes para implementar o conversor.
+
 
 ### 4.1. CÁLCULOS DO CONVERSOR BOOST
 
@@ -448,9 +223,6 @@ uma carga equivalente de cerca de 18,18Ω. Com os resistores já definidos, par
 equação da potência para a definição da tensão de saída, que é demonstrada na equação
 3.1.
 
-```
-푃=푉표푅^2 (3.1)
-```
 Substituindo os valores fornecidos anteriormente, obtemos uma tensão de saída
 de aproximadamente 35,67V
 
@@ -461,12 +233,11 @@ Tomando como base a equação de ganho de um conversor boost e considerando
 que a tensão da fonte adotada foi de 15V, podemos encontrar um valor para o duty cycle,
 como mostrado na equação 3.2.
 
-퐷= 1 − (^) 푉푉푠표 (3.2)
 Adotando os valores mostrados acima obtemos um duty cycle de
 aproximadamente 0,57952.
 A corrente média no indutor pode ser calculada a partir da equação 3.3, já
 demonstrada na introdução.
-퐼퐿=( 1 −퐷푉푆) (^2) ×푅 (3.3)
+
 Obtendo assim uma corrente média no indutor de 4,6667A.
 
 #### 4.1.3 Indutância mínima
@@ -475,21 +246,7 @@ Uma preocupação necessária no projeto do conversor é que o indutor opere de
 modo contínuo, sendo assim, é necessário que asseguremos que o valor utilizado seja
 superior ao valor obtido na expressão abaixo.
 
-(^) 퐿
-푚푖푛=^
 
-##### 퐷( 1 −퐷)^2 푅
-
-##### 2 푓^
-
-##### (3.4)
-
-```
-Portanto:
-퐿푚푖푛= 0 ,^57952 (^1 −^0 ,^57952 )
-```
-(^218) , 18
-2 푥 20 푥 103 →^ 퐿푚푖푛=^0 ,^046569 푚퐻^
 Assim, para garantir que o indutor opere de modo contínuo, garantindo que a
 corrente que passe por ele seja sempre positiva, se faz necessário assegura-se que o valor
 do indutor utilizado seja maior que o calor obtido a partir da equação 3.4.
@@ -505,20 +262,12 @@ potência de saída e a tensão de entrada.
 A partir da equação que segue, podemos obter a corrente de entrada, que é igual a
 corrente no indutor.
 
-(^) 퐼퐿= 퐼푠= 푉푠
-푅 푥 ( 1 −퐷)^2
-퐼퐿= 퐼푠= 4 , 67 퐴
-
 ##### (3.5)
 
 #### 4.1.4.2 Corrente de saída
 
 Utilizando a potência de saída e a tensão de saída, podemos obter a corrente de
 saída a partir da equação abaixo:
-
-(^) 퐼표=푃
-푉표^
-퐼표= 1 , 96 퐴
 
 ##### (3.6)
 
@@ -527,19 +276,12 @@ de acordo com a tensão de saída, ondulação de corrente de entrada, o ciclo d
 a frequência a partir da equação que segue, levando em consideração que a ondulação de
 corrente deve estar em função da tensão de entrada, do ciclo de trabalho, a indutância e a
 frequência, ∆i:
-∆푖푆=∆푖퐿= 0 , 47 퐴
-
-(^) 퐿= 푉푆∗퐷
-∆푖퐿∗푓^
 
 ##### (3.7)
-
-##### 퐿= 0 , 92 푚퐻
 
 O indutor implementado na prática foi feito de forma manual, obtendo um valor
 de 1,5 mH, garantindo dessa forma a ondulação de corrente no mesmo em um valor de
 10%.
-
 
 #### 4.1.5 Cálculo do capacitor
 
@@ -547,25 +289,7 @@ Tendo como sendo 10% de ondulação de saída uma das limitações do projeto,
 temos que tomar esse parâmetro para projetar o capacitor capaz de atender a essa
 demanda. Para tal, foi utilizado a equação que segue:
 
-```
-∆푉 0
-푉 0 =^
-```
-##### 퐷
 
-##### 푅 푥 퐶 푥 푓^
-
-##### (3.8)
-
-Assim, isolando o C e substituindo a ondulação de tensão sobre o
-capacitor, obtemos o seguinte resultado:
-
-(^) 퐶= 퐷
-0 , 1 푥 푅 푥 푓^
-Substituindo os valores correspondentes a cada uma das incógnitas dessa
-equação, temos:
-(^) 퐶= 퐷
-0 , 1 푥 18 , 18 푥 20 푥 103 →퐶=^15 ,^938 푢퐹^
 Na prática utilizamos um capacitor 22uF, que foi o suficiente para que o
 ripple da tensão sobre o capacitor não ultrapassasse os 10%.
 
@@ -585,45 +309,17 @@ chamado ferrite, composto por óxido de ferro e possui poucas perdas quando é u
 em altas frequências, tendo como um dos problemas da sua utilização a sua fragilidade,
 podendo ser comparada a fragilidade do vidro comum.
 
-```
-Figura 11: Núcleo de Ferrite tipo E-E.
-```
-Fonte: Google Imagens.
+
 Duas informações importantes do núcleo são a Área de secção transversal (Ae) e
 a Área da Janela (Aw). Dados esses dois valores, pode-se calcular os demais dados do
 mesmo.
 Figura 12: Núcleo de Ferrite tipo E-E, enfatizando suas áreas de janela e
 transversal.
 
-```
-Fonte: Projeto físico de indutores e transformadores, Prof. Ivo Barbi.
-```
-
 #### 4.2.2. Cálculos dos parâmetros.
 
 O projeto do indutor se baseia nas Leis de Faraday e Àmpere, onde através de
 algumas manipulações matemáticas se obterá:
-
-```
-퐴퐸퐴푊=퐿퐵∗푀퐴푋퐼푃퐼퐶푂∗퐽∗푀퐴푋퐼퐸퐹퐼퐶퐴푍∗퐾푊∗ ( 3. 9 )
-```
-Onde,
-
-퐵푀퐴푋 é densidade de fluxo de saturação do núcleo, onde da ferrite é 0,3T;
-
-퐽푀퐴푋 é a densidade de corrente, onde tipicamente é 450 A/푐푚^2 ;
-
-퐾푊 é o fator de ocupação do cobre dentro do carretel, tipicamente utilizado 0,7.
-
-#### 4.2.3. Número de espiras
-
-```
-Para o número de espiras, tem-se a seguinte equação:
-```
-(^) 푁= 퐿∗퐼푃퐼퐶푂
-퐵푀퐴푋∗퐴퐸^
-
-##### ( 3. 10 )
 
 #### 4.2.4. Entreferro
 
@@ -632,41 +328,10 @@ proporcional ao número de espiras ao quadrado e inversamente proporcional a rel
 Por mais alta que seja a permeabilidade magnética do material, ele possui uma
 relutância. Nesse caso o valor da indutância independe da relutância do núcleo, assim:
 
-(^) 퐿= 푁^2
-푅퐸푁푇푅퐸퐹퐸푅푅푂^
-
-##### ( 3. 11 )
-
-(^) 푅
-퐸푁푇푅퐸퐹퐸푅푅푂=
-
-##### 푙퐸푁푇푅퐸퐹퐸푅푅푂
-
-##### 휇 0 ∗퐴퐸^
-
-##### ( 3. 12 )
-
-
-Assim:
-
-(^) 푙
-퐸푁푇푅퐸퐹퐸푅푅푂=
-
-##### 푁^2 ∗휇 0 ∗퐴퐸
-
-##### 퐿^
-
-##### ( 3. 13 )
 
 O valor do entreferro será distribuído igualmente nas pernas
 laterais do núcleo.
 
-```
-Figura 13 – Distribuição do entreferro.
-```
-```
-Fonte: Google Imagens.
-```
 #### 4.2.5. Secção dos condutores
 
 Considerando que o conversor opera em uma alta frequência, devido ao seu
@@ -675,131 +340,70 @@ corrente ficará na periferia, causando uma redução na área efetiva do condut
 A equação a seguir define qual a bitola do condutor para conduzir a corrente do
 enrolamento:
 
-(^) 푆퐹퐼푂=퐼퐸퐹퐼퐶퐴푍
-퐽푀퐴푋^
-
-##### ( 3. 14 )
-
 Assim sendo necessário calcular o número de condutores em paralelo para que
 seja possível a condução da corrente necessária sem que exista um superaquecimento
 dos mesmos.
-
-(^) 푆푃퐸퐿퐼퐶푈퐿퐴푅= 2 ∗^7 ,^5
-√푓^
-
-##### ( 3. 15 )
-
-
-(^) 푁퐶푂푁퐷= 푆퐶푂푁퐷
-푆푃퐸퐿퐼퐶푈퐿퐴푅^
-
-##### ( 3. 16 )
 
 Para a última etapa do projeto do indutor, temos que verificar se é possível
 associar estes condutores na janela do núcleo. Assim, se Ex<1 é possível a utilização
 deste núcleo, verificando essa máxima, utilizamos:
 
-(^) 퐴푊
-푀퐼푁=
 
-##### 푁∗푁퐶푂푁퐷∗푆퐹퐼푂
-
-##### 퐾푊^
-
-##### ( 3. 17 )
 
 ### 4.3. CIRCUITO SIMULADO
 
 Após os cálculos dos parâmetros do conversor Boost, o mesmo foi simulado
 utilizando o software PSIM para que posteriormente pudesse ser implementado no
 circuito físico.
-Figura 11: Conversor Boost
 
-```
-Fonte: Simulado no PSIM pelos autores.
-```
-
-```
-Figura 12: Formas de Onda da Tensão e de Corrente de Entrada
-```
-Fonte: Simulado no PSIM pelos autores.
 A tensão na fonte, onda em azul, é constante, visto que este é um conversor
-CC-CC e foi implementada uma fonte de tensão contínua de 15 푉. Já a corrente
+CC-CC e foi implementada uma fonte de tensão contínua de 15V. Já a corrente
 passa apenas pelo indutor com a chave fechada, carregando-o e, quando a chave
 está aberta, ele é descarregado através do capacitor e carga, passando pelo diodo,
-com corrente eficaz de 4 , 66 퐴.
-Figura 13: Formas de Onda de Tensão e Corrente na Carga
+com corrente eficaz de 4,66A.
 
-Fonte: Simulado no PSIM pelos autores.
 Na figura 13 observa-se as formas de onda de tensão (em azul) e de
 corrente (vermelha) na carga a partir do momento que o conversor é ligado. A
-ondulação de tensão de saída corresponde a 6 ,85% da tensão rms, que é de 35 , 68 푉
+ondulação de tensão de saída corresponde a 6 ,85% da tensão rms, que é de 35,68V
 e a ondulação de corrente na carga também é de 6 ,85% da corrente rms, que é
 1 , 96 퐴. Para melhor observar estas formas de onda na carga, elas são apresentadas
 ampliadas na figura 14.
 
+Com isso, é mostrada também a potência ativa de saída, igual a 69,94W,
+praticamente igual à potência solicitada nas especificações, que é de 70W.
 
-```
-Figura 14: Formas de Onda de Tensão e Corrente na Carga
-```
-Fonte: Simulado no PSIM pelos autores.
-Com isso, é mostrada também a potência ativa de saída, igual a 69 , 94 푊,
-praticamente igual à potência solicitada nas especificações, que é de 70 푊.
-Figura 15: Forma de Onda de Tensão no Indutor
 
-Fonte: Simulado no PSIM pelos autores.
 Para melhor visualização da forma de onda a mesma foi ampliada, obtendo
 o mostrado na figura 16.
 
-
-```
-Figura 16: Forma de Onda de Tensão no Indutor
-```
-Fonte: Simulado no PSIM pelos autores.
 Com a chave fechada a corrente que sai da fonte passa totalmente pelo
 indutor, que se carrega e se mantém assim até que a chave abra e ele comece a
 descarregar pelo capacitor, por isso a onda é desta forma, com valor rms igual a
-18 , 14 푉.
-Figura 17: Forma de Onda de Corrente no Indutor
+18,14V.
 
-Fonte: Simulado no PSIM pelos autores.
 O mesmo ocorre para a forma de onda da corrente, foi mostrado desde o
 momento em que o circuito começa seu funcionamento na figura 17, mas para
 melhor analisá-la é necessário dar zoom.
 
-
-```
-Figura 18: Forma de Onda de Corrente no Indutor
-```
-Fonte: Simulado no PSIM pelos autores.
-O valor rms da corrente no indutor é de 4 , 66 퐴 e ela aumenta enquanto a
+O valor rms da corrente no indutor é de 4,66A e ela aumenta enquanto a
 chave está fechada e começa a decair quando a chave se abre. A ondulação de
 corrente nesse componente é de 5 ,94%, um valor dentro do aceitável.
-Figura 19: Forma de Onda de Tensão na Chave
 
-```
-Fonte: Simulado no PSIM pelos autores.
-```
-
-```
-Figura 20: Forma de Onda de Corrente na Chave
-```
-Fonte: Simulado no PSIM pelos autores.
-O valor eficaz de tensão na chave obtido nesta simulação é de 25 , 30 푉 e o
-de corrente é de 3 , 30 퐴. Como no software os componentes são tratados como
+O valor eficaz de tensão na chave obtido nesta simulação é de 25,30V e o
+de corrente é de 3,30A. Como no software os componentes são tratados como
 ideal, quando não há corrente na chave a tensão na mesma é máxima, visto que
 ela está aberta, podendo ser considerada um circuito aberto. Já quando a tensão é
 nula, a corrente é máxima, então a chave pode ser considerada um curto-circuito.
 Figura 21: Formas de Onda de Tensão e Corrente no Diodo
 
-Fonte: Simulado no PSIM pelos autores.
-O valor eficaz de tensão no diodo é de 24 , 28 푉 e de corrente é equivalente
-a 3 , 40 퐴. A partir das formas de onda acima é possível notar que quando há
+
+O valor eficaz de tensão no diodo é de 24,28V  e de corrente é equivalente
+a 3,40A. A partir das formas de onda acima é possível notar que quando há
 corrente no diodo a tensão no mesmo é nula, pois, como é considerado ideal, se
 comporta como um curto-circuito, do mesmo modo que ocorre com a chave
 mostrada anteriormente. Já quando o diodo está em aberto a tensão é negativa pois
 é a tensão reversa nele, que possui valor igual à tensão na carga (aproximadamente
-36 푉), porém com sinal oposto.
+36V), porém com sinal oposto.
 
 
 ## 5. EXPERIMENTO
@@ -820,39 +424,20 @@ das tuas portas do CI-3525, obtendo uma onda de até cerca de 90% de ciclo de tr
 Os diodos usados foram do tipo Shotcky, de modo que o tempo de recuperação fosse
 baixo.
 
-```
-Figura 22: Circuito de chaveamento
-```
-```
-Fonte: Autoral
-```
-
 Usando o osciloscópio para medir a onda do chaveamento PWM, obtemos as
 formas especificadas na figura 23. Vale destacar que o driver foi alimentado com uma
 tensão de 15V e frequência de 20kHz.
 Figura 23 : Forma de onda do PWM (laranja) x Tensão na saída (azul)
 
-```
-Fonte: Autoral
-```
+
 ### 5.2. CIRCUITO DE POTÊNCIA
 
 Após os cálculos e simulações feitas no PSIM, foi realizada a montagem da parte
 prática, como mostrado na figura 24 e 25.
 
-```
-Figura 24: Montagem do circuito de potência
-```
-```
-Fonte: Autores
-```
-
 Após a montagem do circuito foram feitas as devidas medições. Os parâmetros
 estabelecidos pela equipe eram de 15V na entrada e 35V na saída.
 
-```
-Figura 25: Leitura do osciloscópio Tensão de entrada (laranja) x Tensão de saída (azul)
-```
 Fonte: Autores
 Ao compararmos a onda obtida com a simulada, observamos que a onda medida
 contém leves ruídos, porém estes não são de grande relevância na medição da tensão final,
@@ -865,12 +450,6 @@ foi bem satisfatório.
 Com a alicate amperímetro do osciloscópio, foram medidos os valores de corrente
 na carga, que estão comparados aos de tensão.
 
-```
-Figura 26 Corrente na saída (laranja) x tensão na saída (azul)
-```
-```
-Fonte: Autoral
-```
 
 O valor de corrente médio obtido gira em torno de 2%. Sendo assim, notamos que
 o conversor boost projetado está gerando resultados satisfatórios e coerentes com a
@@ -885,10 +464,6 @@ de carga 18.18Ω, na prática devido a tolerância dos resistores a resistênci
 modificou-se um pouco ao que foi estimado, no entanto o circuito ainda comportou-se de
 forma estável superando os cálculos de potência. Segue abaixo a figura 27 do resultado.
 
-```
-Figura 27: Montagem do circuito de carga
-```
-Fonte: Autores
 As chaves encontradas na placa possibilitam o teste com variação de carga, assim
 como também um distúrbio, em caso de futura implementação de uma malha fechada por
 meio de um controle. A placa de driver, já está pronta para essa expansão, contando com
@@ -941,46 +516,8 @@ Rio Grande do Sul, Brasil: AMGH Editora Ltda.
 Autor.
 ```
 
-## 8. REPOSITÓRIO
-
-Indo ao encontro da comunidade Open Source, todos os arquivos produzidos neste
-trabalho serão disponibilizados na plataforma GitHub, juntamente com esse relatório,
-tornando-o não capaz, no entanto, mais possível, que esse trabalho se torne útil a outrem.
-
-```
-[3] RUIZ, Flávia P.; LIMA; Julio C. F.; FARIAS, Matheus P.; OLIVEIRA, Yara
-M. Conversor Boost. Universidade Federal do Ceará, Disciplina de Eletrônica de
-Potência, Curso de Engenharia Elétrica. Ceará, Sobral, 2018. Disponível em:
-<https://github.com/juloko/Conversor-Boost>.
-```
-##### ,
 
 
-## 9. ANEXOS
-
-As próximas páginas deste relatório destinam-se aos anexos que podem ser
-utilizados durante a execução de um projeto. No intuito de garantir que os arquivos de
-referência possam ser impressos, serão listados abaixo os títulos respectivamente de
-acordo com a ordem de apresentação de cada página que virá a seguir. Com exceção do
-Anexo 9.1.
-
-### 9.1. CIRCUITO DESENVOLVIDO NO KICAD EM 3D (ILUSTRATIVO)
-
-```
-Figura 28: Montagem de todo o circuitos em 3D
-```
-```
-Fonte: Autores
-```
-### 9.2. ESQUEMÁTICO DESENVOLVIDO NO KICAD
-
-### (ILUSTRATIVO) 9.3. PLACA DE CIRCUITO IMPRESSO DESENVOLVIDA NO KICAD
-
-##### (ILUSTRATIVO)
-
-### PARA EXECUSSÃO) 9.4. PLACA DE CIRCUITO IMPRESSO DESENVOLVIDA NO KICAD (PRONTA
-
-##### (PRONTA PARA EXECUSSÃO)
 
 
 
